@@ -5,14 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password");
     const confirmPassword = document.getElementById("confirmPassword");
     const togglePassword = document.getElementById("togglePassword");
+    const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
     const successMessage = document.getElementById("successMessage");
-    
+
     // Error elements
     const usernameError = document.getElementById("usernameError");
     const emailError = document.getElementById("emailError");
     const passwordError = document.getElementById("passwordError");
     const confirmPasswordError = document.getElementById("confirmPasswordError");
-    
+
     // Password Strength
     const strengthBar = document.getElementById("strength-bar");
     const strengthText = document.getElementById("strength-text");
@@ -22,11 +23,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
 
-    // Show/Hide Password Toggle
-    togglePassword.addEventListener("change", () => {
-        password.type = togglePassword.checked ? "text" : "password";
-        confirmPassword.type = togglePassword.checked ? "text" : "password";
-    });
+    // Password Visibility Toggle
+    function toggleVisibility(input, icon) {
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.replace("fa-eye-slash", "fa-eye");
+        } else {
+            input.type = "password";
+            icon.classList.replace("fa-eye", "fa-eye-slash");
+        }
+    }
+
+    togglePassword.addEventListener("click", () => toggleVisibility(password, togglePassword));
+    toggleConfirmPassword.addEventListener("click", () => toggleVisibility(confirmPassword, toggleConfirmPassword));
 
     // Password Strength Meter
     password.addEventListener("input", () => {
@@ -80,10 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             return;
         }
-
-        // Save to LocalStorage
-        localStorage.setItem("username", username.value);
-        localStorage.setItem("email", email.value);
 
         successMessage.textContent = "Registration Successful!";
         form.reset();

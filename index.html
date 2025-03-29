@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -19,16 +20,21 @@
             <span class="error-message" id="emailError"></span>
 
             <label>Password</label>
-            <input type="password" id="password" placeholder="Enter password" required>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Enter password" required>
+                <i class="fa-solid fa-eye-slash toggle-icon" id="togglePassword"></i>
+            </div>
             <span class="error-message" id="passwordError"></span>
             <div class="password-strength">
                 <div id="strength-bar"></div>
                 <p id="strength-text"></p>
             </div>
-            <input type="checkbox" id="togglePassword"> Show Password
 
             <label>Confirm Password</label>
-            <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+            <div class="password-container">
+                <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+                <i class="fa-solid fa-eye-slash toggle-icon" id="toggleConfirmPassword"></i>
+            </div>
             <span class="error-message" id="confirmPasswordError"></span>
 
             <button type="submit">Register</button>

@@ -5,6 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f4f4f4;
+    margin: 0;
 }
 
 .container {
@@ -12,18 +13,53 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
 }
 
 h2 {
     text-align: center;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px; /* Space for eye icon */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.toggle-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    cursor: pointer;
+    color: #888;
 }
 
 input {
     width: 100%;
     padding: 10px;
-    margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
 }
 
 button {
@@ -34,6 +70,7 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 4px;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -43,6 +80,8 @@ button:hover {
 .error-message {
     color: red;
     font-size: 12px;
+    margin-top: 2px;
+    display: block;
 }
 
 .password-strength {
@@ -50,6 +89,8 @@ button:hover {
     height: 5px;
     background: #ddd;
     margin-top: 5px;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 #strength-bar {
@@ -59,8 +100,16 @@ button:hover {
     transition: width 0.5s ease-in-out;
 }
 
+#strength-text {
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: right;
+    color: gray;
+}
+
 #successMessage {
     text-align: center;
     color: green;
     font-weight: bold;
+    margin-top: 10px;
 }
