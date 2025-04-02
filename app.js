@@ -8,22 +8,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
     const successMessage = document.getElementById("successMessage");
 
-    // Error elements
+
     const usernameError = document.getElementById("usernameError");
     const emailError = document.getElementById("emailError");
     const passwordError = document.getElementById("passwordError");
     const confirmPasswordError = document.getElementById("confirmPasswordError");
 
-    // Password Strength
+
     const strengthBar = document.getElementById("strength-bar");
     const strengthText = document.getElementById("strength-text");
 
-    // Regex patterns
+
     const usernamePattern = /^[a-zA-Z0-9]{3,15}$/;
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
 
-    // Password Visibility Toggle
+
     function toggleVisibility(input, icon) {
         if (input.type === "password") {
             input.type = "text";
@@ -34,10 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+
     togglePassword.addEventListener("click", () => toggleVisibility(password, togglePassword));
     toggleConfirmPassword.addEventListener("click", () => toggleVisibility(confirmPassword, toggleConfirmPassword));
 
-    // Password Strength Meter
+
     password.addEventListener("input", () => {
         const value = password.value;
         let strength = 0;
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         strengthText.textContent = texts[strength - 1] || "Weak";
     });
 
-    // Form Validation
+
     form.addEventListener("submit", (e) => {
         let valid = true;
 
@@ -95,4 +96,5 @@ document.addEventListener("DOMContentLoaded", () => {
         strengthBar.style.width = "0";
         e.preventDefault();
     });
+   
 });
